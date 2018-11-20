@@ -1,4 +1,4 @@
-import {Dict} from '../src/dictionary';
+import { Dict } from '../src/dictionary';
 
 const dict = new Dict();
 
