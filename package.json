@@ -8,6 +8,7 @@
     "publish": "yarn babel src --out-dir dist --watch"
   },
   "devDependencies": {
+    "@types/jest": "^23.3.9",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-jest": "^23.6.0",
