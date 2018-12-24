@@ -145,3 +145,97 @@ class LinkedList {
     return string;
   }
 }
+
+/**
+ * 双向链表节点
+ */
+class DoublyLinkedListNode {
+  /**
+   * 双向链表节点类构造函数
+   * @param {*} element 元素值
+   */
+  constructor (element) {
+    // 当前节点值
+    this.element = element;
+    // 指向下一个节点的指针
+    this.next = null;
+    // 指向上一个节点的指针
+    this.prev = null;
+  }
+}
+
+class DoublyLinkedList {
+  constructor () {
+    this.length = 0;
+    this.head = null;
+    this.tail = null;
+  }
+
+  /**
+   * 向双向链表指定位置插入元素
+   * @param {number} position 指定位置
+   * @param {*} element 要插入的元素
+   * @returns {boolean} 是否成功插入
+   */
+  insert (position, element) {
+    if (position >= 0 && position <= this.length) {
+      let [node, current, index, previous] = [new DoublyLinkedListNode(element), this.head, -1];
+      if (position === 0) {
+        if (!this.head) {
+          [this.head, this.tail] = [node, node];
+        } else {
+          node.next = current;
+          current.prev = node;
+          this.head = node;
+        }
+      } else if (position === this.length) {
+        current = this.tail;
+        current.next = node;
+        node.prev = current;
+        this.tail = node;
+      } else {
+        while (index++ < position) {
+          previous = current;
+          current = current.next;
+        }
+        node.next = current;
+        previous.next = node;
+        current.prev = node;
+        node.prev = previous;
+      }
+      this.length++;
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  /**
+   * 从给定的位置移除元素
+   * @param {number} position 位置
+   */
+  removeAt (position) {
+    if (position > -1 && position < this.length) {
+      let [current, previous, index] = [this.head, undefined, 0];
+      if (position === 0) {
+        this.head = current.next;
+        if (this.length === 1) {
+          this.tail = null;
+        } else {
+          this.head.prev = null;
+        }
+      } else if (position === this.length - 1) {
+        [current, this.tail, this.tail.next] = [this.tail, current.prev, null];
+      } else {
+        while (index++ < position) {
+          [previous, current] = [current, current.next];
+        }
+        [previous.next, current.next.prev] = [current.next, previous];
+      }
+      this.length--;
+      return current.element;
+    } else {
+      return null;
+    }
+  }
+}
