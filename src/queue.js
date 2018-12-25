@@ -90,5 +90,5 @@ class PriorityQueue extends Queue {
 export {
   Queue,
   PriorityQueue,
-  QueueElement,
+  QueueElement
 };
