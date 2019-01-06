@@ -215,3 +215,5 @@ class BinarySearchTree {
     return node;
   }
 }
+
+export { BinarySearchTree };

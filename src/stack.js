@@ -29,3 +29,5 @@ export default class Stack {
     return this[_items].length;
   }
 }
+
+export { Stack };
