@@ -4,6 +4,8 @@ import { BinarySearchTree } from './binary-search-tree';
 import { LinkedList, DoublyLinkedList } from './linked-list';
 import { Queue, PriorityQueue } from './queue';
 import { Stack } from './stack';
+import { Graph } from './graph';
+import { bubbleSort } from './sort';
 
 export {
   HashMap,
@@ -14,5 +16,7 @@ export {
   DoublyLinkedList,
   Queue,
   PriorityQueue,
-  Stack
+  Stack,
+  Graph,
+  bubbleSort
 };
