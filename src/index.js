@@ -5,7 +5,7 @@ import { LinkedList, DoublyLinkedList } from './linked-list';
 import { Queue, PriorityQueue } from './queue';
 import { Stack } from './stack';
 import { Graph } from './graph';
-import { bubbleSort } from './sort';
+import { bubbleSort, selectSort, insertSort, mergeSort, quickSort } from './sort';
 
 export {
   HashMap,
@@ -18,5 +18,9 @@ export {
   PriorityQueue,
   Stack,
   Graph,
-  bubbleSort
+  bubbleSort,
+  selectSort,
+  insertSort,
+  mergeSort,
+  quickSort
 };
