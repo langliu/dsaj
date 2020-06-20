@@ -5,8 +5,8 @@ class Dict {
 
   /**
    * 添加
-   * @param key
-   * @param value
+   * @param key 键
+   * @param value 值
    */
   add(key, value) {
     this.datastore[key] = value;
@@ -41,19 +41,33 @@ class Dict {
   }
 
   /**
+   * 以Object对象的形式返回字典的内容
+   */
+  toObject() {
+    return Object.fromEntries(Object.entries(this.datastore));
+  }
+
+  /**
    * 统计字典元素数量
    * @returns {number} 字典元素数量
    */
   count() {
-    let num = 0;
-    Object.keys(this.datastore).forEach(() => num++);
-    return num;
+    return Object.keys(this.datastore).length;
   }
 
   clear() {
     Object.keys(this.datastore).forEach(item => {
       delete this.datastore[item];
     });
+  }
+
+  sort() {
+    const sortKeys = Object.keys(this.datastore).sort();
+    const newDataStore = [];
+    sortKeys.forEach(item => {
+      newDataStore[item] = this.find(item);
+    });
+    return newDataStore;
   }
 }
 
